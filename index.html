@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Procedural Jewelry & Native Rhino CAD — abdullahanxie</title>
+  <meta name="description" content="How abdullahanxie and his team progressed from procedural 3D rings to native Rhino CAD. A personal account of jewelry automation, geometry, and a six-month journey.">
+  <meta name="author" content="abdullahanxie">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#f8f6f0">
+  <link rel="canonical" href="https://abdullahanxie.github.io/procedural-rhino-jewelry/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="From procedural rings to native Rhino CAD">
+  <meta property="og:description" content="A workflow built by abdullahanxie and team. The journey from generated 3D rings to editable jewelry CAD, with the implementation kept private.">
+  <meta property="og:url" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/">
+  <meta property="og:image" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/conceptual-workflow-detailed.png">
+  <meta property="og:image:alt" content="Conceptual diagram with design exploration, review branches, refinement loops, and native Rhino CAD.">
+  <meta property="article:author" content="https://github.com/abdullahanxie">
+  <meta property="article:published_time" content="2026-09-22">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="From procedural rings to native Rhino CAD — abdullahanxie">
+  <meta name="twitter:description" content="The journey from generated rings to native jewelry CAD. Built by abdullahanxie and team.">
+  <meta name="twitter:image" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/conceptual-workflow-detailed.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "From procedural rings to native Rhino CAD",
+    "description": "abdullahanxie shares his team's progression from procedural 3D ring generation to native Rhino CAD for jewelry design.",
+    "author": {"@type": "Person", "name": "abdullahanxie", "url": "https://github.com/abdullahanxie"},
+    "datePublished": "2026-09-22",
+    "dateModified": "2026-09-22",
+    "inLanguage": "en",
+    "image": "https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/conceptual-workflow-detailed.png",
+    "mainEntityOfPage": "https://abdullahanxie.github.io/procedural-rhino-jewelry/",
+    "about": ["Procedural jewelry design", "Rhino CAD", "3D ring generation"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#article">Skip to article</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="./" aria-label="abdullahanxie home">abdullahanxie<span class="dot">.</span></a>
+    <nav aria-label="Main"><a href="#story">The story</a><a href="#overview">The overview</a><a href="https://github.com/abdullahanxie">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="article">
+    <article>
+      <header class="hero wrap">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A builder’s journal <span class="separator">/</span> Jewelry & computational design</p>
+        <h1>From procedural rings<br>to <em>native Rhino CAD.</em></h1>
+        <p class="deck">Six months of progress. One demanding problem.<br class="desktop-break"> The journey my team and I have been building.</p>
+        <div class="byline"><span class="avatar" aria-hidden="true">a.</span><div><a rel="author" href="https://github.com/abdullahanxie">abdullahanxie</a><p><time datetime="2026-09-22">September 22, 2026</time><span aria-hidden="true"> · </span>Project story</p></div></div>
+      </header>
+      <figure class="workflow wrap" id="overview">
+        <a href="assets/conceptual-workflow-detailed.png" aria-label="Open the full-size conceptual workflow image"><img src="assets/conceptual-workflow-detailed.png" width="1672" height="941" fetchpriority="high" alt="A conceptual workflow by abdullahanxie: design direction and form exploration lead to private procedural development; shape, proportion, and detail reviews converge on refinement, with an iteration loop and a path to native Rhino CAD. These are illustrative stages, not the internal architecture."></a>
+        <figcaption><span>01 / A public view of the idea · <a href="assets/conceptual-workflow-detailed.png">Open full-size diagram ↗</a></span><span>Conceptual illustration. Implementation kept private.</span></figcaption>
+      </figure>
+      <div class="reading-layout wrap" id="story">
+        <aside class="article-index" aria-label="Article contents"><p class="eyebrow">In this story</p><a href="#beginning">The beginning</a><a href="#challenge">Why rings are difficult</a><a href="#breakthrough">The CAD breakthrough</a><a href="#meaning">What this means</a><a href="#author">About the builder</a></aside>
+        <div class="prose">
+          <p class="lead">As more creative work moves into 3D, jewelry keeps reminding us how much the details matter. A ring is a small object, but building a system that can generate its geometry consistently is a substantial engineering challenge.</p>
+          <p>Around six months ago, my team and I built a workflow that generated 3D rings. That was an important milestone. Today, we have extended that work to native Rhino CAD, bringing the geometry into a format that can be opened, inspected, and edited in Rhino.</p>
+          <p>This is the story of that progression—and why it has been the most demanding automation project I have worked on.</p>
+          <section id="beginning"><p class="section-number">01 / The beginning</p><h2>From garment automation<br>to a different kind of precision.</h2>
+            <p>Recently, I have worked on automation pipelines for J., Sitara, Kollective Moda, and other garment businesses. Those projects shaped how I approach automation: understand the product, respect its details, and build a process that can repeat useful work.</p>
+            <p>Jewelry brought a different set of demands. A ring has to hold together as a three-dimensional design. The band, setting, and stones have relationships that become obvious as soon as the object is viewed from another angle.</p>
+            <p>That is what drew me into procedural ring generation. My team and I wanted to build a system that could turn design intent into ring geometry, then keep developing that geometry into something useful for CAD work.</p>
+          </section>
+          <section id="challenge"><p class="section-number">02 / The challenge</p><h2>Small object.<br>Very little room for error.</h2>
+            <p>Jewelry compresses a surprising amount of complexity into a small space. A slight change in proportion can alter the character of a design. A connection that looks acceptable from one view may be wrong from another. Curves, symmetry, stone placement, and the way parts meet all need attention.</p>
+            <p>Procedural design adds another responsibility: the logic has to produce coherent results as the design changes. Solving one ring is a milestone; making a workflow useful across variations is a deeper challenge.</p>
+            <blockquote>Generating the ring was the first milestone. Extending that work into native Rhino CAD became the harder one.</blockquote>
+          </section>
+          <section id="breakthrough"><p class="section-number">03 / The breakthrough</p><h2>The move into native Rhino CAD.</h2>
+            <p>The latest stage of our work produces native Rhino <code>.3dm</code> files with CAD geometry. For me, that is the breakthrough: taking the procedural work into an environment where the resulting design can be examined and developed further.</p>
+            <p>Getting there pushed us to think more carefully about geometry, consistency, and how a ring’s individual elements relate to one another. It has been the most difficult part of this project, and the part I am proudest to share.</p>
+            <p>CAD output is an important step in the design process. Each piece still needs appropriate checks for dimensions, tolerances, stone fit, and the intended manufacturing method before production.</p>
+          </section>
+          <section id="meaning"><p class="section-number">04 / The perspective</p><h2>Sharing the milestone.<br>Keeping the implementation private.</h2>
+            <p>The diagram above uses illustrative design stages, review branches, and a refinement loop to communicate the journey. These are broad concepts, not a map of the actual implementation. It does not disclose the system’s internal architecture or provide instructions for reproducing it.</p>
+            <p>Algorithmic jewelry design has an established history. <a href="https://www.rhino3d.com/for/jewelry/">Rhino’s jewelry resources</a> include parametric and generative approaches. This article documents our own implementation and the progress my team and I have made.</p>
+            <p>For anyone exploring how to make CAD jewelry, our experience points to a demanding part of the problem: preserving design intent while building geometry that can support further CAD work.</p>
+            <p>We reached ring generation around six months ago. Now we have taken the next step into native Rhino CAD. I wanted to put my name, and my team’s contribution, alongside that work.</p>
+          </section>
+          <div class="author-card" id="author"><span class="avatar" aria-hidden="true">a.</span><div><p class="eyebrow">Written by</p><h2>abdullahanxie</h2><p>Building creative automation across garments, jewelry, and 3D. This workflow was developed with my team.</p><a href="https://github.com/abdullahanxie">Find me on GitHub <span aria-hidden="true">↗</span></a></div></div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer wrap"><span>© 2026 abdullahanxie</span><span>Procedural jewelry · Native Rhino CAD</span><a href="#article">Back to top ↑</a></footer>
+</body>
+</html>
