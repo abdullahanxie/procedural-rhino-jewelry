@@ -1,6 +1,6 @@
-# From procedural rings to native Rhino CAD
+# Image and text to native Rhino jewelry CAD
 
-A public project article by **abdullahanxie**, crediting his team's contribution.
+A technical article by **abdullahanxie**, documenting a team-developed image-to-CAD and text-to-CAD workflow, its deliverables, and its limitations.
 
 Website: https://abdullahanxie.github.io/procedural-rhino-jewelry/
 
@@ -20,8 +20,14 @@ The page includes an author byline, canonical URL, Article structured data, soci
 
 The approximate six-month project history is the author's account. This article records this team's implementation; it makes no claim of worldwide invention priority. The publication date does not establish the earlier development date.
 
+## Production scope
+
+The project owner confirmed on September 22, 2026: production-ready for supported ring designs, with CAD review before manufacture. The article does not claim unrestricted design coverage, automatic manufacturing approval, or measured performance metrics.
+
 ## Artwork
 
-`assets/conceptual-workflow-detailed.png` was generated with the built-in image generation tool. Its brief: an ivory-and-navy conceptual flowchart with nine broad design-stage nodes, review branches, convergence, a refinement loop, and native Rhino CAD output; credit abdullahanxie; explicitly label it illustrative, with no actual architecture, code, parameters, client assets, or workflow instructions. The earlier three-panel concept is retained locally as `assets/conceptual-workflow.png`.
+The current image is `assets/image-text-to-cad-pipeline.png`. Generated with the built-in image tool, then edited with that tool to ensure an opaque warm-white background and crisp lines. Earlier images are preserved.
+
+Final image brief: image and text inputs converge into input interpretation, procedural CAD generation, validation with a correction loop, and output files branching into native Rhino .3dm and .glb preview. Use navy and pale blue on warm white, clear directional arrows, no personal name or byline, and a footer explaining that internal methods are not shown. These are broad functional labels, not internal architecture.
 
 Text and artwork © 2026 abdullahanxie. All rights reserved.

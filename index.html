@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Procedural Jewelry & Native Rhino CAD — abdullahanxie</title>
-  <meta name="description" content="How abdullahanxie and his team progressed from procedural 3D rings to native Rhino CAD. A personal account of jewelry automation, geometry, and a six-month journey.">
+  <title>Image &amp; Text to Jewelry CAD | Native Rhino Pipeline — abdullahanxie</title>
+  <meta name="description" content="A technical overview of an image-to-CAD and text-to-CAD jewelry pipeline: native Rhino geometry, supported ring designs, production scope, and remaining limitations.">
   <meta name="author" content="abdullahanxie">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#f8f6f0">
@@ -13,79 +13,97 @@
   <link rel="stylesheet" href="styles.css">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="From procedural rings to native Rhino CAD">
-  <meta property="og:description" content="A workflow built by abdullahanxie and team. The journey from generated 3D rings to editable jewelry CAD, with the implementation kept private.">
+  <meta property="og:title" content="Image and text to native Rhino jewelry CAD">
+  <meta property="og:description" content="A technical overview of an image-to-CAD and text-to-CAD jewelry pipeline: native Rhino geometry, supported ring designs, production scope, and remaining limitations.">
   <meta property="og:url" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/">
-  <meta property="og:image" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/conceptual-workflow-detailed.png">
-  <meta property="og:image:alt" content="Conceptual diagram with design exploration, review branches, refinement loops, and native Rhino CAD.">
+  <meta property="og:image" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/image-text-to-cad-pipeline.png">
+  <meta property="og:image:alt" content="Image and text inputs flow into input interpretation, procedural CAD generation, validation and correction, then native Rhino .3dm and .glb preview output. Simplified functional overview; internal methods are not shown.">
   <meta property="article:author" content="https://github.com/abdullahanxie">
   <meta property="article:published_time" content="2026-09-22">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="From procedural rings to native Rhino CAD — abdullahanxie">
-  <meta name="twitter:description" content="The journey from generated rings to native jewelry CAD. Built by abdullahanxie and team.">
-  <meta name="twitter:image" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/conceptual-workflow-detailed.png">
+  <meta name="twitter:title" content="Image and text to native Rhino jewelry CAD — abdullahanxie">
+  <meta name="twitter:description" content="A technical overview of an image-to-CAD and text-to-CAD jewelry pipeline: native Rhino geometry, supported ring designs, production scope, and remaining limitations.">
+  <meta name="twitter:image" content="https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/image-text-to-cad-pipeline.png">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "From procedural rings to native Rhino CAD",
-    "description": "abdullahanxie shares his team's progression from procedural 3D ring generation to native Rhino CAD for jewelry design.",
-    "author": {"@type": "Person", "name": "abdullahanxie", "url": "https://github.com/abdullahanxie"},
-    "datePublished": "2026-09-22",
-    "dateModified": "2026-09-22",
-    "inLanguage": "en",
-    "image": "https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/conceptual-workflow-detailed.png",
-    "mainEntityOfPage": "https://abdullahanxie.github.io/procedural-rhino-jewelry/",
-    "about": ["Procedural jewelry design", "Rhino CAD", "3D ring generation"]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Image and text to native Rhino jewelry CAD",
+  "description": "A technical overview of an image-to-CAD and text-to-CAD jewelry pipeline: native Rhino geometry, supported ring designs, production scope, and remaining limitations.",
+  "author": {
+    "@type": "Person",
+    "name": "abdullahanxie",
+    "url": "https://github.com/abdullahanxie"
+  },
+  "datePublished": "2026-09-22",
+  "dateModified": "2026-09-22",
+  "inLanguage": "en",
+  "image": "https://abdullahanxie.github.io/procedural-rhino-jewelry/assets/image-text-to-cad-pipeline.png",
+  "mainEntityOfPage": "https://abdullahanxie.github.io/procedural-rhino-jewelry/",
+  "about": [
+    "Image-to-CAD jewelry generation",
+    "Text-to-CAD ring design",
+    "Rhino CAD",
+    "Production workflow limitations"
+  ]
+}
   </script>
 </head>
 <body>
   <a class="skip" href="#article">Skip to article</a>
   <header class="site-header wrap">
     <a class="wordmark" href="./" aria-label="abdullahanxie home">abdullahanxie<span class="dot">.</span></a>
-    <nav aria-label="Main"><a href="#story">The story</a><a href="#overview">The overview</a><a href="https://github.com/abdullahanxie">GitHub <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main"><a href="#story">Technical overview</a><a href="#overview">The overview</a><a href="https://github.com/abdullahanxie">GitHub <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="article">
     <article>
       <header class="hero wrap">
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A builder’s journal <span class="separator">/</span> Jewelry & computational design</p>
-        <h1>From procedural rings<br>to <em>native Rhino CAD.</em></h1>
-        <p class="deck">Six months of progress. One demanding problem.<br class="desktop-break"> The journey my team and I have been building.</p>
-        <div class="byline"><span class="avatar" aria-hidden="true">a.</span><div><a rel="author" href="https://github.com/abdullahanxie">abdullahanxie</a><p><time datetime="2026-09-22">September 22, 2026</time><span aria-hidden="true"> · </span>Project story</p></div></div>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Technical article <span class="separator">/</span> Jewelry & computational design</p>
+        <h1>Image or text.<br> <em>Native jewelry CAD.</em></h1>
+        <p class="deck">A production-ready workflow for supported ring designs,<br class="desktop-break"> with CAD review before manufacture.</p>
+        <div class="byline"><span class="avatar" aria-hidden="true">a.</span><div><a rel="author" href="https://github.com/abdullahanxie">abdullahanxie</a><p><time datetime="2026-09-22">September 22, 2026</time><span aria-hidden="true"> · </span>Technical overview</p></div></div>
       </header>
       <figure class="workflow wrap" id="overview">
-        <a href="assets/conceptual-workflow-detailed.png" aria-label="Open the full-size conceptual workflow image"><img src="assets/conceptual-workflow-detailed.png" width="1672" height="941" fetchpriority="high" alt="A conceptual workflow by abdullahanxie: design direction and form exploration lead to private procedural development; shape, proportion, and detail reviews converge on refinement, with an iteration loop and a path to native Rhino CAD. These are illustrative stages, not the internal architecture."></a>
-        <figcaption><span>01 / A public view of the idea · <a href="assets/conceptual-workflow-detailed.png">Open full-size diagram ↗</a></span><span>Conceptual illustration. Implementation kept private.</span></figcaption>
+        <a href="assets/image-text-to-cad-pipeline.png" aria-label="Open the full-size image and text to CAD pipeline diagram"><img src="assets/image-text-to-cad-pipeline.png" width="1671" height="941" fetchpriority="high" alt="Image and text inputs flow into input interpretation, procedural CAD generation, validation and correction, then native Rhino .3dm and .glb preview output. Simplified functional overview; internal methods are not shown."></a>
+        <figcaption><span>01 / Image and text to CAD · <a href="assets/image-text-to-cad-pipeline.png">Open full-size diagram ↗</a></span><span>Functional overview. Internal methods kept private.</span></figcaption>
       </figure>
       <div class="reading-layout wrap" id="story">
-        <aside class="article-index" aria-label="Article contents"><p class="eyebrow">In this story</p><a href="#beginning">The beginning</a><a href="#challenge">Why rings are difficult</a><a href="#breakthrough">The CAD breakthrough</a><a href="#meaning">What this means</a><a href="#author">About the builder</a></aside>
+        <aside class="article-index" aria-label="Article contents"><p class="eyebrow">In this article</p><a href="#problem">The conversion problem</a><a href="#pipeline">Image and text inputs</a><a href="#output">What the output contains</a><a href="#production">Production scope</a><a href="#limitations">Remaining limitations</a><a href="#context">Project context</a></aside>
         <div class="prose">
-          <p class="lead">As more creative work moves into 3D, jewelry keeps reminding us how much the details matter. A ring is a small object, but building a system that can generate its geometry consistently is a substantial engineering challenge.</p>
-          <p>Around six months ago, my team and I built a workflow that generated 3D rings. That was an important milestone. Today, we have extended that work to native Rhino CAD, bringing the geometry into a format that can be opened, inspected, and edited in Rhino.</p>
-          <p>This is the story of that progression—and why it has been the most demanding automation project I have worked on.</p>
-          <section id="beginning"><p class="section-number">01 / The beginning</p><h2>From garment automation<br>to a different kind of precision.</h2>
-            <p>Recently, I have worked on automation pipelines for J., Sitara, Kollective Moda, and other garment businesses. Those projects shaped how I approach automation: understand the product, respect its details, and build a process that can repeat useful work.</p>
-            <p>Jewelry brought a different set of demands. A ring has to hold together as a three-dimensional design. The band, setting, and stones have relationships that become obvious as soon as the object is viewed from another angle.</p>
-            <p>That is what drew me into procedural ring generation. My team and I wanted to build a system that could turn design intent into ring geometry, then keep developing that geometry into something useful for CAD work.</p>
+          <p class="lead">Turning a jewelry image or a written brief into editable CAD is a geometry problem. The result must describe a three-dimensional object that can be inspected, modified, and passed into an established design process.</p>
+          <p>Our image-to-CAD and text-to-CAD workflow addresses that conversion for supported ring designs. It generates native Rhino <code>.3dm</code> output alongside a <code>.glb</code> preview. The workflow is production-ready within this supported scope, with CAD review required before manufacture.</p>
+          <section id="problem"><p class="section-number">01 / The problem</p><h2>The gap between a reference<br>and usable CAD geometry.</h2>
+            <p>A product image describes appearance from a particular viewpoint. It does not fully specify the back of a setting, hidden connections, absolute scale, or the dimensions required to fit a stone. A text brief can state a design intention while leaving those same details unresolved.</p>
+            <p>When the input is visual and the deliverable is CAD, someone must resolve those ambiguities and construct the geometry. That translation is a substantial part of the work. Automation has to preserve the visible design relationships while producing geometry that can be reviewed in three dimensions.</p>
+            <p>The problem becomes especially demanding in rings: band proportions, stone placement, repeated details, and the connections between components interact within a small object. Errors can remain hidden in an attractive preview and become apparent only during CAD inspection.</p>
           </section>
-          <section id="challenge"><p class="section-number">02 / The challenge</p><h2>Small object.<br>Very little room for error.</h2>
-            <p>Jewelry compresses a surprising amount of complexity into a small space. A slight change in proportion can alter the character of a design. A connection that looks acceptable from one view may be wrong from another. Curves, symmetry, stone placement, and the way parts meet all need attention.</p>
-            <p>Procedural design adds another responsibility: the logic has to produce coherent results as the design changes. Solving one ring is a milestone; making a workflow useful across variations is a deeper challenge.</p>
-            <blockquote>Generating the ring was the first milestone. Extending that work into native Rhino CAD became the harder one.</blockquote>
+          <section id="pipeline"><p class="section-number">02 / The pipeline</p><h2>Two input routes.<br>A CAD deliverable.</h2>
+            <p>The workflow accepts a reference image or a text description. At a public, functional level, the task is to interpret the design brief, generate CAD geometry, evaluate the result, and correct detected issues before delivering output.</p>
+            <p>The diagram shows these responsibilities and the correction path. It deliberately abstracts the implementation. It does not disclose the internal architecture, generation methods, or decision logic.</p>
+            <p>This addresses a practical bottleneck: moving a supported design brief into an editable CAD model without requiring every element to be constructed manually from the beginning. The scope is ring design; a supported input still needs enough information to make the intended result assessable.</p>
           </section>
-          <section id="breakthrough"><p class="section-number">03 / The breakthrough</p><h2>The move into native Rhino CAD.</h2>
-            <p>The latest stage of our work produces native Rhino <code>.3dm</code> files with CAD geometry. For me, that is the breakthrough: taking the procedural work into an environment where the resulting design can be examined and developed further.</p>
-            <p>Getting there pushed us to think more carefully about geometry, consistency, and how a ring’s individual elements relate to one another. It has been the most difficult part of this project, and the part I am proudest to share.</p>
-            <p>CAD output is an important step in the design process. Each piece still needs appropriate checks for dimensions, tolerances, stone fit, and the intended manufacturing method before production.</p>
+          <section id="output"><p class="section-number">03 / The output</p><h2>Native CAD and a visual preview<br>serve different purposes.</h2>
+            <p>The Rhino deliverable contains NURBS-based CAD geometry for inspection and further editing. The separate 3D preview supports visual review. A successful preview alone does not establish that the CAD geometry meets a downstream production requirement.</p>
+            <div class="table-scroll"><table><caption>Deliverables and their role</caption><thead><tr><th scope="col">Deliverable</th><th scope="col">Purpose</th></tr></thead><tbody><tr><td>Rhino <code>.3dm</code></td><td>Inspect and edit the ring’s CAD geometry.</td></tr><tr><td>Preview <code>.glb</code></td><td>Review the design interactively in 3D.</td></tr><tr><td>Reviewed CAD</td><td>Prepare the design for the intended downstream process.</td></tr></tbody></table></div>
+            <p>The file extension is only part of the distinction. Rhino files can contain several kinds of geometry, including meshes; the objects inside the file matter. Here, native CAD refers to the generated NURBS-based geometry, rather than using a Rhino file solely as a container for a preview mesh. <a href="https://www.rhino3d.com/features/developer/rhino3dm/">McNeel’s geometry-library overview</a> provides background on Rhino geometry and file support.</p>
           </section>
-          <section id="meaning"><p class="section-number">04 / The perspective</p><h2>Sharing the milestone.<br>Keeping the implementation private.</h2>
-            <p>The diagram above uses illustrative design stages, review branches, and a refinement loop to communicate the journey. These are broad concepts, not a map of the actual implementation. It does not disclose the system’s internal architecture or provide instructions for reproducing it.</p>
-            <p>Algorithmic jewelry design has an established history. <a href="https://www.rhino3d.com/for/jewelry/">Rhino’s jewelry resources</a> include parametric and generative approaches. This article documents our own implementation and the progress my team and I have made.</p>
-            <p>For anyone exploring how to make CAD jewelry, our experience points to a demanding part of the problem: preserving design intent while building geometry that can support further CAD work.</p>
-            <p>We reached ring generation around six months ago. Now we have taken the next step into native Rhino CAD. I wanted to put my name, and my team’s contribution, alongside that work.</p>
+          <section id="production"><p class="section-number">04 / Production scope</p><h2>Production-ready within<br>a defined design scope.</h2>
+            <p>The workflow is production-ready for supported ring designs, with CAD review before manufacture. In this context, readiness applies to generating CAD deliverables as part of a design workflow. Manufacturing release remains a separate decision for each piece.</p>
+            <p>That review must consider the intended size, geometry integrity, component intersections, stone fit, minimum sections, clearances, and the requirements of the chosen manufacturing process. These are acceptance criteria for a finished design, not properties that can be inferred from an image or a file download.</p>
+            <p>Rhino’s <a href="https://docs.mcneel.com/rhino/8/help/en-us/toolbarmap/diagnostics_toolbar.htm">geometry diagnostics</a> help inspect object validity. A valid CAD object still needs design-specific and process-specific review.</p>
           </section>
-          <div class="author-card" id="author"><span class="avatar" aria-hidden="true">a.</span><div><p class="eyebrow">Written by</p><h2>abdullahanxie</h2><p>Building creative automation across garments, jewelry, and 3D. This workflow was developed with my team.</p><a href="https://github.com/abdullahanxie">Find me on GitHub <span aria-hidden="true">↗</span></a></div></div>
+          <section id="limitations"><p class="section-number">05 / Limitations</p><h2>What the workflow does<br>and does not resolve.</h2>
+            <p><strong>Incomplete input.</strong> A single photograph cannot establish all hidden dimensions. A text description may omit critical relationships. Missing information requires clarification or an explicit design decision.</p>
+            <p><strong>Supported design range.</strong> Production readiness applies to supported ring designs. It is not a claim of reliable reconstruction of every jewelry style, arbitrary topology, or ambiguous reference.</p>
+            <p><strong>Geometry and manufacturing checks.</strong> Automated validation and correction can detect and address issues, but they do not replace a CAD review or approval for a specific material, stone, and fabrication process.</p>
+            <p><strong>Performance evidence.</strong> This article does not publish a measured success rate, a generation-time guarantee, or a comparison benchmark. Those claims require a defined test set and recorded results.</p>
+            <p>The contribution is a working route from supported image or text inputs to editable jewelry CAD. It reduces the need to begin each supported design with a completely manual reconstruction while retaining review at the point where engineering and manufacturing requirements matter.</p>
+          </section>
+          <section id="context"><p class="section-number">06 / Project context</p><h2>From generated rings<br>to a CAD workflow.</h2>
+            <p>The team’s ring-generation workflow was developed around six months before this article. The current work extends that capability to native Rhino CAD. It sits alongside automation work for J., Sitara, Kollective Moda, and other garment businesses.</p>
+            <p>This article documents the capabilities and boundaries of this implementation. It is a technical overview, not a reproduction guide or a claim to have invented procedural jewelry design.</p>
+          </section>
+          <div class="author-card" id="author"><span class="avatar" aria-hidden="true">a.</span><div><p class="eyebrow">Article by</p><h2>abdullahanxie</h2><p>Workflow developed with the team. Image and text inputs; native Rhino CAD output.</p><a href="https://github.com/abdullahanxie">GitHub <span aria-hidden="true">↗</span></a></div></div>
         </div>
       </div>
     </article>

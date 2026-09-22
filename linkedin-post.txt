@@ -1,18 +1,15 @@
-As more creative work moves into 3D, jewelry remains a demanding test of what automation can do.
+Image or text to native Rhino jewelry CAD.
 
-Around six months ago, my team and I built a workflow that generated 3D rings. Today, we have extended that work to native Rhino CAD.
+A jewelry reference describes appearance. A usable CAD model needs three-dimensional geometry that can be inspected, edited, and reviewed for the intended production process.
 
-That progression has been my toughest engineering challenge so far.
+Our workflow addresses that conversion for supported ring designs, accepting an image or a text description and producing native Rhino .3dm geometry alongside a .glb preview.
 
-Recently, I have also worked on automation pipelines for J., Sitara, Kollective Moda, and other garment businesses. Each project has taught me how much product details matter. Jewelry takes that lesson into a different kind of precision.
+The workflow is production-ready for supported ring designs, with CAD review before manufacture. That scope matters: incomplete references, unusual designs, stone fit, tolerances, and manufacturing requirements still need appropriate review.
 
-A ring is small, but its geometry is unforgiving. Proportions, curves, stone placement, and how the parts connect all need to work together. Bringing procedural designs into editable CAD pushed our work further.
+Around six months ago, my team and I developed a workflow that generated 3D rings. We have since extended that work to native Rhino CAD. This sits alongside our automation work for J., Sitara, Kollective Moda, and other garment businesses.
 
-I am proud of what my team and I have built, and I wanted to document this milestone under my name: abdullahanxie.
+The article explains the problem, output, production scope, and limitations. The diagram shows a simplified functional pipeline; internal methods remain private.
 
-I have written about the journey here:
 https://abdullahanxie.github.io/procedural-rhino-jewelry/
 
-The image is a conceptual overview. We are keeping the implementation private.
-
-#ProceduralDesign #Rhino3D #JewelryDesign #Automation #CAD
+#ImageToCAD #TextToCAD #Rhino3D #JewelryDesign #Automation
